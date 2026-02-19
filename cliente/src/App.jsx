@@ -57,11 +57,19 @@ function App() {
       <Route path="Inscripcion" element={<Inscripcion />} />
       <Route path="respaldos" element={<Respaldo />} />
       <Route path="Horarios" element={<Horarios />} />
-      <Route path="/horario-docente" element={<ProtectorNivel nivelesPermitidos={['Director', 'Docente']}><VistaHorarioDocente /></ProtectorNivel>} />
+      <Route
+        path="/horario-docente"
+        element={
+          <ProtectorNivel nivelesPermitidos={["Director", "Docente"]}>
+            <VistaHorarioDocente />
+          </ProtectorNivel>
+        }
+      />
       <Route
         path="planificacion-academica"
         element={<PlanificacionAcademica />}
       />
+
       <Route
         path="gestion-de-rendimiento-academico"
         element={

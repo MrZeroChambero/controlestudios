@@ -51,7 +51,7 @@ trait OperacionesBDTrait
    * @return bool Verdadero si se afectó al menos una fila.
    * @throws Exception Cuando la ejecución falla.
    */
-  protected function ejecutarAccion(PDO $conexion, string $sql, array $parametros = []): bool
+  protected function ejecutarSQL(PDO $conexion, string $sql, array $parametros = []): bool
   {
     try {
       $sentencia = $conexion->prepare($sql);

@@ -19,7 +19,7 @@ trait AreasAprendizajeGestionTrait
     }
 
     $sql = 'INSERT INTO areas_aprendizaje (nombre_area, estado_area) VALUES (?, ?)';
-    $exito = $this->ejecutarAccion($conexion, $sql, [
+    $exito = $this->ejecutarSQL($conexion, $sql, [
       $datosDepurados['nombre_area'],
       $datosDepurados['estado_area']
     ]);
@@ -61,7 +61,7 @@ trait AreasAprendizajeGestionTrait
     }
 
     $sql = 'UPDATE areas_aprendizaje SET nombre_area = ?, estado_area = ? WHERE id_area_aprendizaje = ?';
-    $exito = $this->ejecutarAccion($conexion, $sql, [
+    $exito = $this->ejecutarSQL($conexion, $sql, [
       $datosFusionados['nombre_area'],
       $datosFusionados['estado_area'],
       $idArea
@@ -86,7 +86,7 @@ trait AreasAprendizajeGestionTrait
     }
 
     $sql = 'DELETE FROM areas_aprendizaje WHERE id_area_aprendizaje = ?';
-    $exito = $this->ejecutarAccion($conexion, $sql, [$idArea]);
+    $exito = $this->ejecutarSQL($conexion, $sql, [$idArea]);
 
     if (!$exito) {
       return ['errores' => ['general' => ['No fue posible eliminar el área.']]];
@@ -114,7 +114,7 @@ trait AreasAprendizajeGestionTrait
     }
 
     $sql = 'UPDATE areas_aprendizaje SET estado_area = ? WHERE id_area_aprendizaje = ?';
-    $exito = $this->ejecutarAccion($conexion, $sql, [$nuevoEstado, $idArea]);
+    $exito = $this->ejecutarSQL($conexion, $sql, [$nuevoEstado, $idArea]);
 
     if (!$exito) {
       return ['errores' => ['general' => ['No fue posible actualizar el estado del área.']]];
